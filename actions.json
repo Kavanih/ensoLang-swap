@@ -1,0 +1,116 @@
+[
+  {
+    "action": "approve",
+    "inputs": {
+      "token": "Address of token",
+      "spender": "Address of spender",
+      "amount": "Raw amount to approve"
+    }
+  },
+  {
+    "action": "borrow",
+    "inputs": {
+      "collateral": "Address of token used for collateral",
+      "tokenOut": "Address of token to borrow",
+      "amountOut": "Raw amount to receive",
+      "primaryAddress": "Address of smart contract to interact with"
+    }
+  },
+  {
+    "action": "deposit",
+    "inputs": {
+      "tokenIn": "Address of token to send",
+      "tokenOut": "Address of token to receive",
+      "amountIn": "Raw amount to send",
+      "primaryAddress": "Address of smart contract to interact with"
+    }
+  },
+  {
+    "action": "harvest",
+    "inputs": {
+      "token": "Address of token",
+      "primaryAddress": "Address of smart contract to interact with"
+    }
+  },
+  {
+    "action": "permittransferfrom",
+    "inputs": {
+      "token": "Token to approve",
+      "amount": "The amount to approve",
+      "nonce": "The nonce to prevent signature replays",
+      "deadline": "The deadline on the permit signature",
+      "signature": "The permit signature"
+    }
+  },
+  {
+    "action": "redeem",
+    "inputs": {
+      "tokenIn": "Address of token to send",
+      "tokenOut": "Address of token to receive",
+      "amountIn": "Raw amount to send",
+      "primaryAddress": "Address of smart contract to interact with"
+    }
+  },
+  {
+    "action": "repay",
+    "inputs": {
+      "tokenIn": "Address of token to repay",
+      "amountIn": "Raw amount to send",
+      "primaryAddress": "Address of smart contract to interact with"
+    }
+  },
+  {
+    "action": "apiswap",
+    "inputs": {
+      "tokenIn": "Address of token to sell",
+      "tokenOut": "Address of token to buy",
+      "amountIn": "Raw amount to sell",
+      "slippage": "Amount of slippage"
+    }
+  },
+  {
+    "action": "swap",
+    "inputs": {
+      "tokenIn": "Address of token to sell",
+      "tokenOut": "Address of token to buy",
+      "amountIn": "Raw amount to sell",
+      "slippage": "Amount of slippage",
+      "primaryAddress": "Address of swap executer smart contract"
+    }
+  },
+  {
+    "action": "transfer",
+    "inputs": {
+      "token": "Address of token",
+      "recipient": "Address of recipient",
+      "amount": "Raw amount to transfer"
+    }
+  },
+  {
+    "action": "transferfrom",
+    "inputs": {
+      "token": "Address of token",
+      "sender": "Address of sender",
+      "recipient": "Address of recipient",
+      "amount": "Raw amount to transfer"
+    }
+  },
+  {
+    "action": "withdraw",
+    "inputs": {
+      "primaryAddress": "Address of smart contract to interact with",
+      "tokenIn": "Address of token to send",
+      "tokenOut": "Address of token to receive",
+      "amountOut": "Raw amount to withdraw"
+    }
+  },
+  {
+    "inputs": {
+      "tokenIn": "Address of token to sell",
+      "tokenOut": "Address of token to buy",
+      "amountIn": "Raw amount to sell",
+      "slippage": "Amount of slippage"
+    },
+    "action": "route"
+  }
+]

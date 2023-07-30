@@ -1,0 +1,1295 @@
+[
+  {
+    "protocol": { "slug": "1inch", "url": "https://1inch.io/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "apiswap",
+        "name": "OneInch_Swap",
+        "functionNames": ["extractElement", "bytes32ToUint256"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to sell",
+          "tokenOut": "Address of token to buy",
+          "amountIn": "Raw amount to sell",
+          "slippage": "Amount of slippage"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "aave-v2", "url": "https://www.aave.org/" },
+    "forks": [{ "slug": "radiant-v2", "url": "https://radiant.capital/" }],
+    "actions": [
+      {
+        "action": "borrow",
+        "name": "Aave_v2_Borrow",
+        "functionNames": ["borrow"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "collateral": "Address of token used for collateral",
+          "tokenOut": "Address of token to borrow",
+          "amountOut": "Raw amount to receive",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "deposit",
+        "name": "Aave_v2_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Aave_v2_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "repay",
+        "name": "Aave_v2_Repay",
+        "functionNames": ["repay"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to repay",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "aave-v3", "url": "https://www.aave.org/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "borrow",
+        "name": "Aave_v3_Borrow",
+        "functionNames": ["borrow"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "collateral": "Address of token used for collateral",
+          "tokenOut": "Address of token to borrow",
+          "amountOut": "Raw amount to receive",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "deposit",
+        "name": "Aave_v3_Deposit",
+        "functionNames": ["depositETH", "deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Aave_v3_Redeem",
+        "functionNames": ["withdrawETH", "withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "repay",
+        "name": "Aave_v3_Repay",
+        "functionNames": ["repayETH", "repay"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to repay",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "balancer-v2", "url": "https://balancer.fi" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Balancer_v2_Deposit",
+        "functionNames": ["joinPool"],
+        "supportedChains": [],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Balancer_v2_Redeem",
+        "functionNames": ["exitPool"],
+        "supportedChains": [],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "beefy", "url": "https://beefy.com" },
+    "forks": [{ "slug": "stakedao", "url": "https://lockers.stakedao.org" }],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Beefy_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Beefy_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "compound", "url": "https://compound.finance" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "borrow",
+        "name": "Compound_Borrow",
+        "functionNames": ["enterMarkets", "borrow"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "collateral": "Address of token used for collateral",
+          "tokenOut": "Address of token to borrow",
+          "amountOut": "Raw amount to receive",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "deposit",
+        "name": "Compound_Deposit",
+        "functionNames": ["mint"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Compound_Redeem",
+        "functionNames": ["redeem"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "repay",
+        "name": "Compound_Repay",
+        "functionNames": ["repayBorrow"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to repay",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "convex-lp", "url": "https://convex.finance" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Convex_LP_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Convex_LP_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "convex", "url": "https://convex.fi" },
+    "forks": [{ "slug": "aura", "url": "https://www.aura.finance/" }],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Convex_Deposit",
+        "functionNames": ["stake"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "withdraw",
+        "name": "Convex_Withdraw",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "primaryAddress": "Address of smart contract to interact with",
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountOut": "Raw amount to withdraw"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "curve-dex", "url": "https://curve.fi" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Curve_Deposit",
+        "functionNames": ["add_liquidity"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Curve_Redeem",
+        "functionNames": ["remove_liquidity_one_coin"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "curve-gauge", "url": "https://curve.fi" },
+    "forks": [{ "slug": "balancer-gauge", "url": "https://balancer.fi" }],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Curve_Gauge_Deposit",
+        "functionNames": ["deposit(uint256)"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "harvest",
+        "name": "Curve_Gauge_Harvest",
+        "functionNames": ["mint", "claim_rewards"],
+        "supportedChains": [],
+        "inputs": {
+          "token": "Address of token",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Curve_Gauge_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "enso", "url": "https://enso.finance/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "apiswap",
+        "name": "Enso_Swap",
+        "functionNames": ["extractElement", "bytes32ToUint256"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to sell",
+          "tokenOut": "Address of token to buy",
+          "amountIn": "Raw amount to sell",
+          "slippage": "Amount of slippage"
+        }
+      },
+      {
+        "inputs": {
+          "tokenIn": "Address of token to sell",
+          "tokenOut": "Address of token to buy",
+          "amountIn": "Raw amount to sell",
+          "slippage": "Amount of slippage"
+        },
+        "action": "route",
+        "name": "Enso_Route",
+        "functionNames": [],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ]
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "erc20", "url": "" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "approve",
+        "name": "ERC20_Approve",
+        "functionNames": ["approve"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "token": "Address of token",
+          "spender": "Address of spender",
+          "amount": "Raw amount to approve",
+          "id": "Id of the token"
+        }
+      },
+      {
+        "action": "transfer",
+        "name": "ERC20_Transfer",
+        "functionNames": ["transfer"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "token": "Address of token",
+          "recipient": "Address of recipient",
+          "amount": "Raw amount to transfer",
+          "id": "Id of the token"
+        }
+      },
+      {
+        "action": "transferfrom",
+        "name": "ERC20_TransferFrom",
+        "functionNames": ["transferFrom"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "token": "Address of token",
+          "sender": "Address of sender",
+          "recipient": "Address of recipient",
+          "amount": "Raw amount to transfer",
+          "id": "Id of the token"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "erc4626", "url": "" },
+    "forks": [
+      { "slug": "fraxlend", "url": "https://defillama.com/protocol/fraxlend" },
+      {
+        "slug": "frax-ether",
+        "url": "https://defillama.com/protocol/frax-ether"
+      }
+    ],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "ERC4626_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "ERC4626_Redeem",
+        "functionNames": ["redeem"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "gearbox", "url": "https://gearbox.fi/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Gearbox_Deposit",
+        "functionNames": ["toDiesel", "addLiquidity"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Gearbox_Redeem",
+        "functionNames": ["removeLiquidity"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "lido", "url": "https://lido.fi" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Lido_Deposit",
+        "functionNames": ["submit"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "morpho-aave", "url": "https://www.Morpho.xyz/" },
+    "forks": [{ "slug": "morpho-compound", "url": "https://www.Morpho.xyz/" }],
+    "actions": [
+      {
+        "action": "borrow",
+        "name": "Morpho_Borrow",
+        "functionNames": ["borrow"],
+        "supportedChains": [],
+        "inputs": {
+          "collateral": "Address of token used for collateral",
+          "tokenOut": "Address of token to borrow",
+          "amountOut": "Raw amount to receive",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "deposit",
+        "name": "Morpho_Deposit",
+        "functionNames": ["supply"],
+        "supportedChains": [],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "repay",
+        "name": "Morpho_Repay",
+        "functionNames": ["repay"],
+        "supportedChains": [],
+        "inputs": {
+          "tokenIn": "Address of token to repay",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "withdraw",
+        "name": "Morpho_Withdraw",
+        "functionNames": ["withdraw"],
+        "supportedChains": [],
+        "inputs": {
+          "primaryAddress": "Address of smart contract to interact with",
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountOut": "Raw amount to withdraw"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": {
+      "slug": "permit2",
+      "url": "https://etherscan.io/address/0x000000000022D473030F116dDEE9F6B43aC78BA3"
+    },
+    "forks": [],
+    "actions": [
+      {
+        "action": "permittransferfrom",
+        "name": "Permit2_PermitTransferFrom",
+        "functionNames": ["permitTransferFrom"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "token": "Token to approve",
+          "amount": "The amount to approve",
+          "nonce": "The nonce to prevent signature replays",
+          "deadline": "The deadline on the permit signature",
+          "signature": "The permit signature"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "rocketpool", "url": "https://rocketpool.net/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Rocketpool_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "stakedao-sd-gauge", "url": "https://stakedao.org" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Stakedao_SD_Gauge_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Stakedao_SD_Gauge_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "stakedao-sd", "url": "https://stakedao.org" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Stakedao_SD_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": {
+      "slug": "stargate-farming",
+      "url": "https://www.stargate.finance/"
+    },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Stargate_Farming_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [{ "id": 1, "name": "Ethereum" }],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "harvest",
+        "name": "Stargate_Farming_Harvest",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "token": "Address of token",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "withdraw",
+        "name": "Stargate_Farming_Withdraw",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "primaryAddress": "Address of smart contract to interact with",
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountOut": "Raw amount to withdraw"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "stargate", "url": "https://www.stargate.finance/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Stargate_Deposit",
+        "functionNames": ["addLiquidityETH", "addLiquidity"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 42161, "name": "Arbitrum One" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Stargate_Redeem",
+        "functionNames": ["instantRedeemLocal"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 42161, "name": "Arbitrum One" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "uniswap-v2", "url": "https://uniswap.org/" },
+    "forks": [
+      { "slug": "sushiswap", "url": "https://sushi.com/" },
+      { "slug": "shibaswap", "url": "https://shibaswap.com/" },
+      { "slug": "verse", "url": "https://verse.bitcoin.com/" }
+    ],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Uniswap_v2_Deposit",
+        "functionNames": [
+          "addLiquidityETH",
+          "addLiquidity",
+          "extractElement",
+          "bytes32ToUint256"
+        ],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Uniswap_v2_Redeem",
+        "functionNames": [
+          "removeLiquidityETH",
+          "removeLiquidity",
+          "extractElement",
+          "bytes32ToUint256"
+        ],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "swap",
+        "name": "Uniswap_v2_Swap",
+        "functionNames": [
+          "swapExactTokensForTokensSupportingFeeOnTransferTokens",
+          "swapExactTokensForETHSupportingFeeOnTransferTokens",
+          "swapExactETHForTokensSupportingFeeOnTransferTokens"
+        ],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to sell",
+          "tokenOut": "Address of token to buy",
+          "amountIn": "Raw amount to sell",
+          "slippage": "Amount of slippage",
+          "primaryAddress": "Address of swap executer smart contract"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "unsheth", "url": "https://unsheth.xyz/" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Unsheth_Deposit",
+        "functionNames": ["deposit_lsd"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Unsheth_Redeem",
+        "functionNames": ["exit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "swap",
+        "name": "Unsheth_Swap",
+        "functionNames": ["swapLsdToLsd"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to sell",
+          "tokenOut": "Address of token to buy",
+          "amountIn": "Raw amount to sell",
+          "slippage": "Amount of slippage",
+          "primaryAddress": "Address of swap executer smart contract"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "Vesper", "url": "https://vesper.finance" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Vesper_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Vesper_Redeem",
+        "functionNames": ["withdraw", "withdrawETH"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": {
+      "slug": "weth",
+      "url": "https://etherscan.io/token/0xc02aaa39b223fe8d0a0e5c4f27ead9083c756cc2"
+    },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Weth_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Weth_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "ycrv", "url": "https://yearn.finance" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "YCRV_Deposit",
+        "functionNames": ["mint"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  },
+  {
+    "protocol": { "slug": "yearn-finance", "url": "https://yearn.finance" },
+    "forks": [],
+    "actions": [
+      {
+        "action": "deposit",
+        "name": "Yearn_Deposit",
+        "functionNames": ["deposit"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      },
+      {
+        "action": "redeem",
+        "name": "Yearn_Redeem",
+        "functionNames": ["withdraw"],
+        "supportedChains": [
+          { "id": 1, "name": "Ethereum" },
+          { "id": 10, "name": "Optimism" },
+          { "id": 137, "name": "Polygon" },
+          { "id": 42161, "name": "Arbitrum One" },
+          { "id": 43114, "name": "Avalanche" },
+          { "id": 56, "name": "BNB Chain" }
+        ],
+        "inputs": {
+          "tokenIn": "Address of token to send",
+          "tokenOut": "Address of token to receive",
+          "amountIn": "Raw amount to send",
+          "primaryAddress": "Address of smart contract to interact with"
+        }
+      }
+    ]
+  }
+]
