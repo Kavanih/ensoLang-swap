@@ -1,5 +1,6 @@
 from web3 import Web3
 from erc20 import erc20
+from typing import Optional
 
 provider = Web3(Web3.HTTPProvider("http://localhost:8545"))
 address = provider.to_checksum_address("0xd8da6bf26964af9d7eed9e03e53415d37aa96045")
@@ -9,13 +10,18 @@ max_uint256 = 2**256 - 1
 provider.eth.default_account = address
 
 
-def fork_chain() -> str:
+def fork_chain() -> Optional[str]:
     res = provider.provider.make_request("evm_snapshot", [])
     result = res.get("result")
-    assert result
-    provider.provider.make_request("anvil_impersonateAccount", [address])
+    return result
+
     provider.provider.make_request("anvil_setBalance", [address, hex(max_uint256)])
     return result
+
+
+def impersonate_account(account: str):
+    res = provider.provider.make_request("anvil_impersonateAccount", [account])
+    print(res)
 
 
 def teardown(snapshot_id):
