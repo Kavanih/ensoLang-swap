@@ -11,8 +11,10 @@ from w3 import (
     get_token_balance,
     address as from_address,
     provider,
+    check_approval,
 )
 from utils import to_checksum
+from web3.types import TxParams
 
 dotenv.load_dotenv()
 
@@ -30,6 +32,14 @@ chain_id = w3.eth.chain_id
 amount_in = 1 * 10**18
 vitalik = w3.to_checksum_address(from_address)
 
+ausdc = w3.to_checksum_address("0x9ba00d6856a4edf4665bca2c2309936572473b7e")
+aaveV2LendingPool = w3.to_checksum_address("0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9")
+usdc = w3.to_checksum_address("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48")
+dai = w3.to_checksum_address("0x6b175474e89094c44da98b954eedeac495271d0f")
+usdcAmount = w3.to_wei("1000", "mwei")
+daiAmount = w3.to_wei("500", "ether")
+# print(approve(usdc, wallet))
+
 
 class EnsoFinance:
     base_url: str = "https://api.enso.finance/api/v1"
@@ -45,6 +55,10 @@ class EnsoFinance:
             raise ValueError("Unable to get account wallet")
         data = res.json()
         return data
+
+    def check_allowance(self, token_address, owner, spender) -> int:
+        approval = check_approval(token_address, owner, spender)
+        return approval
 
     def approve(self, chain_id, account, token_address, amount):
         params = {
@@ -126,18 +140,26 @@ class EnsoFinance:
         res = w3.eth.send_raw_transaction(tnx.rawTransaction)
         print(f"Swap done: trx hash: {res.hex()}")
 
-    def borrow(self, chain_id, from_address):
+    def borrow(
+        self,
+        chain_id: int,
+        collateral: ChecksumAddress,
+        token: ChecksumAddress,
+        from_address: ChecksumAddress,
+        amount: int,
+    ) -> TxParams:
+        token = to_checksum(token)
+        collateral = to_checksum(collateral)
+        from_address = to_checksum(from_address)
+
         walletRes = self.account_wallet(from_address, chain_id)
         wallet = w3.to_checksum_address(walletRes["address"])
-        ausdc = w3.to_checksum_address("0x9ba00d6856a4edf4665bca2c2309936572473b7e")
-        aaveV2LendingPool = w3.to_checksum_address(
-            "0x7d2768dE32b0b80b7a3454c06BdAc94A69DDc7A9"
-        )
-        usdc = w3.to_checksum_address("0xa0b86991c6218b36c1d19d4a2e9eb0ce3606eb48")
-        dai = w3.to_checksum_address("0x6b175474e89094c44da98b954eedeac495271d0f")
-        usdcAmount = w3.to_wei("1000", "mwei")
-        daiAmount = w3.to_wei("500", "ether")
-        print(approve(usdc, wallet))
+        balance = get_token_balance(token, from_address)
+        allowance = self.check_allowance(token, from_address, wallet)
+
+        if amount > balance:
+            raise ValueError("Insufficient Balance")
+
         data = [
             {
                 "protocol": "erc20",
@@ -145,17 +167,17 @@ class EnsoFinance:
                 "args": {
                     "sender": from_address,
                     "recipient": wallet,
-                    "token": usdc,
-                    "amount": usdcAmount,
+                    "token": collateral,
+                    "amount": amount,
                 },
             },
             {
                 "protocol": "aave-v2",
                 "action": "deposit",
                 "args": {
-                    "tokenIn": usdc,
+                    "tokenIn": collateral,
                     "tokenOut": ausdc,
-                    "amountIn": usdcAmount,
+                    "amountIn": amount,
                     "primaryAddress": aaveV2LendingPool,
                 },
             },
@@ -163,9 +185,9 @@ class EnsoFinance:
                 "protocol": "aave-v2",
                 "action": "borrow",
                 "args": {
-                    "collateral": usdc,
-                    "tokenOut": dai,
-                    "amountOut": daiAmount,
+                    "collateral": collateral,
+                    "tokenOut": token,
+                    "amountOut": amount,
                     "primaryAddress": aaveV2LendingPool,
                     "toEao": True,
                 },
@@ -186,7 +208,8 @@ class EnsoFinance:
             },
         )
         data = res.json()
-        return data
+
+        return data["tx"]
         tx = data.get("tx")
         tx["value"] = int(tx["value"])
         tx["gasPrice"] = provider.eth.gas_price
@@ -199,6 +222,57 @@ class EnsoFinance:
         print(res["status"])
         balaf = get_token_balance(dai, wallet)
         print(balaf - balb4)
+
+    def lend(
+        self,
+        chain_id: int,
+        token: ChecksumAddress,
+        from_address: ChecksumAddress,
+        amount: int,
+    ) -> TxParams:
+        token = to_checksum(token)
+        from_address = to_checksum(from_address)
+        walletRes = self.account_wallet(from_address, chain_id)
+        wallet = w3.to_checksum_address(walletRes["address"])
+        data = [
+            {
+                "protocol": "erc20",
+                "action": "transferfrom",
+                "args": {
+                    "sender": from_address,
+                    "recipient": wallet,
+                    "token": token,
+                    "amount": amount,
+                },
+            },
+            {
+                "protocol": "aave-v2",
+                "action": "deposit",
+                "args": {
+                    "tokenIn": token,
+                    "tokenOut": ausdc,
+                    "amountIn": amount,
+                    "primaryAddress": aaveV2LendingPool,
+                },
+            },
+        ]
+        params = {
+            "chainId": chain_id,
+            "fromAddress": from_address,
+            "toEoa": True,
+        }
+        res = requests.post(
+            f"https://api.enso.finance/api/v1/shortcuts/bundle",
+            params=params,
+            data=json.dumps(data),
+            headers={
+                "Authorization": f"Bearer {self.key}",
+                "Content-Type": "application/json",
+            },
+        )
+        data = res.json()
+        return data
+        pass
 
 
 if __name__ == "__main__":
