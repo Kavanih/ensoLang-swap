@@ -1,4 +1,5 @@
 from pydantic import BaseModel
+from eth_typing import ChecksumAddress
 
 
 class Approve(BaseModel):
@@ -16,3 +17,18 @@ class Approve(BaseModel):
                 "amount": 100,
             }
         }
+
+
+class Borrow(BaseModel):
+    chain_id: int
+    from_address: ChecksumAddress
+    collateral: ChecksumAddress
+    token: ChecksumAddress
+    amount: int
+
+
+class Lend(BaseModel):
+    chain_id: int
+    from_address: ChecksumAddress
+    token: ChecksumAddress
+    amount: int
