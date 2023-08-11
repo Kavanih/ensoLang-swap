@@ -1,6 +1,9 @@
 from web3 import Web3
 from erc20 import erc20
 from typing import Optional
+from web3.types import TxParams
+from eth_typing import Address, ChecksumAddress
+from utils import to_checksum
 
 provider = Web3(Web3.HTTPProvider("http://localhost:8545"))
 address = provider.to_checksum_address("0xd8da6bf26964af9d7eed9e03e53415d37aa96045")
@@ -19,7 +22,11 @@ def fork_chain() -> Optional[str]:
     return result
 
 
-def impersonate_account(account: str):
+def increase_balance(address):
+    provider.provider.make_request("anvil_setBalance", [address, hex(max_uint256)])
+
+
+def impersonate_account(account: ChecksumAddress):
     res = provider.provider.make_request("anvil_impersonateAccount", [account])
     print(res)
 
@@ -37,12 +44,26 @@ def get_token_balance(token_address, owner):
     return contract.functions.balanceOf(owner).call()
 
 
-def approve(token_address, spender, amount=max_uint256):
+def check_approval(token_address, owner, spender):
     contract = provider.eth.contract(
-        address=token_address,
+        address=to_checksum(token_address),
         abi=erc20,
     )
-    res = contract.functions.approve(spender, amount).transact()
+    return contract.functions.allowance(owner, spender).call()
+
+
+def approve(
+    from_address: ChecksumAddress,
+    token_address: ChecksumAddress,
+    spender: ChecksumAddress,
+    amount=max_uint256,
+):
+    provider.eth.default_account = to_checksum(from_address)
+    contract = provider.eth.contract(
+        address=to_checksum(token_address),
+        abi=erc20,
+    )
+    res = contract.functions.approve(to_checksum(spender), amount).transact()
     trx = provider.eth.wait_for_transaction_receipt(res)
     return True if trx["status"] == 1 else False
 
@@ -82,6 +103,20 @@ def setup():
 
     print(provider.eth.get_balance(address))
     teardown(snap_id)
+
+
+def send_transaction(tx: TxParams):
+    # tx["value"] = (tx.get("value"), 0)
+    sender: ChecksumAddress = tx.get("from")
+    impersonate_account(sender)
+    increase_balance(sender)
+    provider.eth.default_account = sender
+    tx["gasPrice"] = provider.eth.gas_price
+    tx["gas"] = 10000000000
+    tx["nonce"] = provider.eth.get_transaction_count(sender)
+    tx["gas"] = provider.eth.estimate_gas(tx)
+    print(tx)
+    pass
 
 
 # print(provider.eth.chain_id)
